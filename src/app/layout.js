@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Alif shop",
+  title: "Sardor  shop",
   description: "You can buy more usefull sings from here",
   icons: {
     icon: "/alifshop.svg", 
