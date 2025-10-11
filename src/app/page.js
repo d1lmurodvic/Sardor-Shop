@@ -1,13 +1,86 @@
+"use client";
+
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
+import Container from "@/components/container/Container";
+
 export default function Home() {
+
+  const [counter, setCounter] = useState()
+
+  const images = [
+    {
+      src: "https://images.unsplash.com/photo-1594007654729-407eedc4be65?q=80&w=1920",
+      alt: "Pizza",
+      title: "Hot & Cheesy Pizza - Straight from the Oven",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1920",
+      alt: "Hotdog",
+      title: "Classic Hotdog - Simple, Tasty, Iconic",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1920",
+      alt: "Cola",
+      title: "Refreshing Cola - Perfect with Every Bite",
+    },
+  ];
+
   return (
-    <div className="flex items-center justify-center h-screen bg-black">
-      <div className="flex flex-col items-center ">
-        <h1 className="text-5xl text-primary">
-          Sardor <span className="text-base-content"> is really</span> {" "}
-          <span className="text-warning">Responsiblity</span>
-        </h1>
-        <p className="text-lg text-end text-error mt-2">(Great project is comming...)</p>
+    <Container>
+      <div className="w-full bg-base-300 p-2 rounded-2xl mx-auto my-4 flex gap-8">
+        <Swiper
+          modules={[Pagination, Navigation, Autoplay, EffectFade]}
+          spaceBetween={30}
+          slidesPerView={1}
+          effect="fade"
+          pagination={{ clickable: true, className: "" }}
+          navigation
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+          }}
+          className="rounded-3xl overflow-hidden shadow-xl border-2 border-info"
+       
+        >
+          {images.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className="relative w-full md:h-[550px] flex items-start justify-start">
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  className="w-full h-full object-cover brightness-90"
+                />
+
+                <div className="absolute inset-0 bg-black/40"></div>
+
+                <div className="absolute bottom-10 left-10 text-base-content">
+                  <h2 className="text-3xl md:text-5xl font-bold mb-2 drop-shadow-lg">
+                    {item.alt}
+                  </h2>
+                  <p className="text-lg md:text-xl font-medium max-w-lg text-base-content/60">
+                    {item.title}
+                  </p>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+            <div>
+              {/* For TSX uncomment the commented types below */}
+<span className="countdown font-mono text-2xl">
+  <span style={{"--value":10} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>10</span>:
+  <span style={{"--value":24} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>24</span>:
+  <span style={{"--value":59} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>59</span>
+</span>
+            </div>
       </div>
-    </div>
+     
+    </Container>
   );
 }
