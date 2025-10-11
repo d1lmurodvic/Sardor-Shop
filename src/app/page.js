@@ -10,8 +10,7 @@ import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
 import Container from "@/components/container/Container";
 
 export default function Home() {
-
-  const [counter, setCounter] = useState()
+  const [counter, setCounter] = useState();
 
   const images = [
     {
@@ -46,7 +45,6 @@ export default function Home() {
             disableOnInteraction: false,
           }}
           className="rounded-3xl overflow-hidden shadow-xl border-2 border-info"
-       
         >
           {images.map((item, index) => (
             <SwiperSlide key={index}>
@@ -57,13 +55,13 @@ export default function Home() {
                   className="w-full h-full object-cover brightness-90"
                 />
 
-                <div className="absolute inset-0 bg-black/40"></div>
+                <div className="absolute inset-0 bg-black/20"></div>
 
-                <div className="absolute bottom-10 left-10 text-base-content">
+                <div className="absolute bottom-10 left-10 text-white">
                   <h2 className="text-3xl md:text-5xl font-bold mb-2 drop-shadow-lg">
                     {item.alt}
                   </h2>
-                  <p className="text-lg md:text-xl font-medium max-w-lg text-base-content/60">
+                  <p className="text-lg md:text-xl font-medium max-w-lg text-white/70">
                     {item.title}
                   </p>
                 </div>
@@ -71,16 +69,34 @@ export default function Home() {
             </SwiperSlide>
           ))}
         </Swiper>
-            <div>
-              {/* For TSX uncomment the commented types below */}
-<span className="countdown font-mono text-2xl">
-  <span style={{"--value":10} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>10</span>:
-  <span style={{"--value":24} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>24</span>:
-  <span style={{"--value":59} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>59</span>
-</span>
-            </div>
+        <div>
+          <span className="countdown font-mono text-2xl">
+            <span
+              style={{ "--value": 10 } /* as React.CSSProperties */}
+              aria-live="polite"
+              aria-label={counter}
+            >
+              10
+            </span>
+            :
+            <span
+              style={{ "--value": 24 } /* as React.CSSProperties */}
+              aria-live="polite"
+              aria-label={counter}
+            >
+              24
+            </span>
+            :
+            <span
+              style={{ "--value": 59 } /* as React.CSSProperties */}
+              aria-live="polite"
+              aria-label={counter}
+            >
+              59
+            </span>
+          </span>
+        </div>
       </div>
-     
     </Container>
   );
 }

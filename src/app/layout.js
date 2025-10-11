@@ -26,11 +26,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-base-300 flex flex-col`}
       >
         <ThemeProvider>
           <Header />
-          <main className="flex-1 bg-base-100 text-base-content transition-colors duration-300">
+          <main className="flex-1">
             {children}
           </main>
           <Footer />
