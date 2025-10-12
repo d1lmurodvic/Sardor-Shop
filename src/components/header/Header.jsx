@@ -7,7 +7,7 @@ export default function Header() {
     return (
         <header className="w-full shadow-md sticky top-0 z-50 bg-base-300 border-b-2 border-info rounded-b-xl">
             <Container>
-                <div className="navbar p-4 flex justify-between items-center">
+                <div className="navbar flex justify-between items-center">
                     <div className="flex items-center gap-2 cursor-pointer">
                         <img
                             src="/alifshop.svg"

@@ -1,8 +1,12 @@
+import Container from "@/components/container/Container";
+
 export default function ContactPage() {
   return (
-    <div className="p-10 overflow-y-auto">
-      <h1 className="text-3xl font-bold">Aloqa sahifasi</h1>
-      <p className="mt-4">Biz bilan bog‘lanish uchun formani to‘ldiring.</p>
-    </div>
+    <Container>
+      <div className="mt-5 overflow-y-auto">
+        <p className="text-3xl font-bold">Aloqa sahifasi</p>
+        <p className="mt-4">Biz bilan bog‘lanish uchun formani to‘ldiring.</p>
+      </div>
+    </Container>
   );
 }

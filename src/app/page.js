@@ -69,32 +69,37 @@ export default function Home() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div>
-          <span className="countdown font-mono text-2xl">
-            <span
-              style={{ "--value": 10 } /* as React.CSSProperties */}
-              aria-live="polite"
-              aria-label={counter}
-            >
-              10
+        <div className="flex items-start justify-between border-2 rounded-2xl border-info p-4 w-[60%]">
+          <div>
+            <p className="text-xl flex font-bold ">Товар дня</p>
+          </div>
+          <div className="mt-1">
+            <span className="countdown font-mono text-xl text-success">
+              <span
+                style={{ "--value": 10 } }
+                aria-live="polite"
+                aria-label={counter}
+              >
+                10
+              </span>
+              :
+              <span
+                style={{ "--value": 24 } /* as React.CSSProperties */}
+                aria-live="polite"
+                aria-label={counter}
+              >
+                24
+              </span>
+              :
+              <span
+                style={{ "--value": 59 } /* as React.CSSProperties */}
+                aria-live="polite"
+                aria-label={counter}
+              >
+                59
+              </span>
             </span>
-            :
-            <span
-              style={{ "--value": 24 } /* as React.CSSProperties */}
-              aria-live="polite"
-              aria-label={counter}
-            >
-              24
-            </span>
-            :
-            <span
-              style={{ "--value": 59 } /* as React.CSSProperties */}
-              aria-live="polite"
-              aria-label={counter}
-            >
-              59
-            </span>
-          </span>
+          </div>
         </div>
       </div>
     </Container>
