@@ -1,3 +1,4 @@
+import { Link } from "lucide-react";
 import Container from "../container/Container";
 import ThemeController from "../ui/theme/themeController/page";
 import NavDesktop from "./NavDesktop";
@@ -14,9 +15,8 @@ export default function Header() {
                             alt="Sardor Shop"
                             className="w-10 h-auto"
                         />
-                        <p className="hidden sm:block text-base-content font-bold xl:text-lg sm:opacity-75">
-                            Sardor shop
-                        </p>
+                             
+                     <p>Sardor shop</p>
                     </div>
 
                     <div className="hidden md:flex">
