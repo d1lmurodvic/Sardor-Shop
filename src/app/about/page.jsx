@@ -4,7 +4,6 @@ import { Heart, Leaf, Handshake } from "lucide-react";
 
 export default function About() {
 
- 
 const teamMembers = [
     {
       name: "Sardor Xojimurodov",
@@ -26,7 +25,7 @@ const teamMembers = [
     },
 ];
 
-  const iconInfos = [
+const iconInfos = [
     {
       icon: <Leaf size={48} className="text-info" />,
       title: "Freshness",
@@ -42,7 +41,7 @@ const teamMembers = [
       title: "Trust",
       desc: "Building lasting relationships with our customers through honest service.",
     },
-  ]
+]
 
 
   return (
