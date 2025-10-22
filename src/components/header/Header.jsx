@@ -1,9 +1,11 @@
 "use client";
 
+import { ShoppingCart } from "lucide-react";
 import Container from "../container/Container";
 import ThemeController from "../ui/theme/themeController/page";
 import NavDesktop from "./NavDesktop";
 import NavMobile from "./NavMobile";
+import Link from "next/link";
 // import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
@@ -23,14 +25,18 @@ export default function Header() {
                             alt="Sardor Shop"
                             className="w-10 h-auto"
                         />
-                             
-                     <p>Sardor shop</p>
+
+                        <p>Sardor shop</p>
                     </div>
 
                     <div className="hidden md:flex">
                         <NavDesktop />
                     </div>
                     <div className="flex items-center gap-2">
+
+                        <div>
+                            <Link href="/cart" className="text-warning mr-4"><ShoppingCart /></Link>
+                        </div>
 
                         <div className="flex items-center p-1 flex-1 ">
                             <ThemeController className=" flex" />
@@ -46,6 +52,7 @@ export default function Header() {
                                     />
                                 </div>
                             </div>
+
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-content rounded-box mt-3 w-52 p-2 shadow"

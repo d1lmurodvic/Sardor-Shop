@@ -14,17 +14,17 @@ export default function Home() {
 
   const images = [
     {
-      src: "https://images.unsplash.com/photo-1594007654729-407eedc4be65?q=80&w=1920",
-      alt: "Pizza",
+      src: "https://theincmagazine.com/wp-content/uploads/2022/10/The-Role-of-Technology-in-Modern-Society.jpg",
+      alt: "Maak book",
       title: "Hot & Cheesy Pizza - Straight from the Oven",
     },
     {
-      src: "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1920",
+      src: "https://cdn.prod.website-files.com/66c6c41aa72bc010740dfa38/6707cdc58cae39db409e67d4_hjklg.jpg",
       alt: "Hotdog",
       title: "Classic Hotdog - Simple, Tasty, Iconic",
     },
     {
-      src: "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1920",
+      src: "https://theincmagazine.com/wp-content/uploads/2022/10/The-Role-of-Technology-in-Modern-Society.jpg",
       alt: "Cola",
       title: "Refreshing Cola - Perfect with Every Bite",
     },
@@ -69,19 +69,19 @@ export default function Home() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="flex items-start justify-between border-2 rounded-2xl border-info p-4 w-[60%]">
+        <div className=" items-start justify-between border-2 rounded-2xl border-info p-4 w-[60%] hidden  lg:flex">
           <div>
-            <p className="text-xl flex font-bold ">Товар дня</p>
+            <p className="text-xl flex font-bold sm:text-xs">Товар дня</p>
           </div>
           <div className="mt-1">
             <span className="countdown font-mono text-xl text-success">
-              <span
+              <spanx
                 style={{ "--value": 10 } }
                 aria-live="polite"
                 aria-label={counter}
               >
                 10
-              </span>
+              </spanx>
               :
               <span
                 style={{ "--value": 24 } /* as React.CSSProperties */}
