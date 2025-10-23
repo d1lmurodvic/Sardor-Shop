@@ -6,15 +6,8 @@ import ThemeController from "../ui/theme/themeController/page";
 import NavDesktop from "./NavDesktop";
 import NavMobile from "./NavMobile";
 import Link from "next/link";
-// import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
-
-    // const navigate = useNavigate()
-
-    // const handleLogout = () => {
-    //     navigate("/login")
-    // }
     return (
         <header className="w-full shadow-md sticky top-0 z-50 bg-base-300 border-b-2 border-info rounded-b-xl">
             <Container>
@@ -35,7 +28,7 @@ export default function Header() {
                     <div className="flex items-center gap-2">
 
                         <div>
-                            <Link href="/cart" className="text-warning mr-4"><ShoppingCart /></Link>
+                            <Link href="/cart" className="text-warning "><ShoppingCart /></Link>
                         </div>
 
                         <div className="flex items-center p-1 flex-1 ">

@@ -1,9 +1,5 @@
 import Container from "@/components/container/Container";
-import { BiCategory } from "react-icons/bi";
-import { GiFruitBowl, GiMeat, GiCakeSlice, GiFishCooked, GiSodaCan } from "react-icons/gi";
-import { MdLocalDrink } from "react-icons/md";
-import { FaCheese } from "react-icons/fa";
-import { TbBread } from "react-icons/tb";
+
 
 export default function Products() {
   return (
