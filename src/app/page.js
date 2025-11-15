@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -10,7 +10,9 @@ import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
 import Container from "@/components/container/Container";
 
 export default function Home() {
-  const [counter, setCounter] = useState();
+  const [isClient, setIsClient] = useState(false);
+  const [time, setTime] = useState({ h: 0, m: 0, s: 0 });
+  const [isWorkingHours, setIsWorkingHours] = useState(true);
 
   const images = [
     {
@@ -30,15 +32,47 @@ export default function Home() {
     },
   ];
 
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+
+  useEffect(() => {
+    if (!isClient) return;
+
+    const updateClock = () => {
+      const now = new Date();
+      const h = now.getHours();
+      const m = now.getMinutes();
+      const s = now.getSeconds();
+
+      setTime({ h, m, s });
+
+      setIsWorkingHours(h >= 8 && h < 22);
+    };
+
+    updateClock(); 
+    const interval = setInterval(updateClock, 1000); 
+
+    return () => clearInterval(interval);
+  }, [isClient]);
+
+  if (!isClient) return null;
+
+
+  const format = (n) => (n < 10 ? `0${n}` : n);
+
   return (
     <Container>
       <div className="w-full bg-base-300 p-2 rounded-2xl mx-auto my-4 flex gap-8">
+        
         <Swiper
           modules={[Pagination, Navigation, Autoplay, EffectFade]}
           spaceBetween={30}
           slidesPerView={1}
           effect="fade"
-          pagination={{ clickable: true, className: "" }}
+          pagination={{ clickable: true }}
           navigation
           autoplay={{
             delay: 4000,
@@ -69,36 +103,25 @@ export default function Home() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className=" items-start justify-between border-2 rounded-2xl border-info p-4 w-[60%] hidden  lg:flex">
+
+     
+        <div className="items-start justify-between border-2 rounded-2xl border-info p-4 w-[60%] hidden lg:flex">
           <div>
             <p className="text-xl flex font-bold sm:text-xs">Товар дня</p>
           </div>
+
           <div className="mt-1">
-            <span className="countdown font-mono text-xl text-success">
-              <spanx
-                style={{ "--value": 10 } }
-                aria-live="polite"
-                aria-label={counter}
-              >
-                10
-              </spanx>
-              :
-              <span
-                style={{ "--value": 24 } /* as React.CSSProperties */}
-                aria-live="polite"
-                aria-label={counter}
-              >
-                24
+            {isWorkingHours ? (
+              <span className="countdown font-mono text-3xl text-success">
+                <span style={{ "--value": time.h }}>{format(time.h)}</span>:
+                <span style={{ "--value": time.m }}>{format(time.m)}</span>:
+                <span style={{ "--value": time.s }}>{format(time.s)}</span>
               </span>
-              :
-              <span
-                style={{ "--value": 59 } /* as React.CSSProperties */}
-                aria-live="polite"
-                aria-label={counter}
-              >
-                59
-              </span>
-            </span>
+            ) : (
+              <p className="text-xl font-bold text-error">
+                Biz hozir ishlamaymiz — 08:00 dan 22:00 gacha ishlaymiz
+              </p>
+            )}
           </div>
         </div>
       </div>
