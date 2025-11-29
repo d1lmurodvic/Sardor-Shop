@@ -1,9 +1,8 @@
 export default function Register() {
     return (
-      <div className="w-full min-h-screen flex items-center justify-center p-4 bg-base-200">
+      <div className="w-full  py-4 flex items-center justify-center  bg-base-200">
         <div className="w-[80%] flex items-center justify-center">
           <div className="bg-base-100 rounded-2xl shadow-xl p-8">
-            {/* Header */}
             <div className="text-center mb-8">
               <div className="inline-block p-3 bg-gradient-to-r from-primary to-secondary rounded-full mb-4">
                 <svg
@@ -26,10 +25,8 @@ export default function Register() {
               <p className="text-base-content/70">Join us today and get started</p>
             </div>
   
-            {/* Form */}
             <div className="space-y-5">
               <div className="flex gap-6">
-                {/* Left Inputs */}
                 <div className="flex-1 space-y-5">
                   <div>
                     <label className="block text-sm font-medium text-base-content mb-2">
@@ -54,7 +51,6 @@ export default function Register() {
                   </div>
                 </div>
   
-                {/* Right Inputs */}
                 <div className="flex-1 space-y-5">
                   <div>
                     <label className="block text-sm font-medium text-base-content mb-2">
@@ -80,7 +76,6 @@ export default function Register() {
                 </div>
               </div>
   
-              {/* Checkbox */}
               <div className="flex items-start">
                 <input
                   type="checkbox"
@@ -95,12 +90,10 @@ export default function Register() {
                 </label>
               </div>
   
-              {/* Register Button */}
               <button type="submit" className="btn btn-primary w-full">
                 Create Account
               </button>
   
-              {/* Social Buttons */}
               <div className="grid grid-cols-2 gap-4">
                 <button
                   type="button"
@@ -143,13 +136,6 @@ export default function Register() {
               </div>
             </div>
   
-            {/* Sign In Link */}
-            <p className="text-center text-sm text-base-content/70 mt-6">
-              Already have an account?{" "}
-              <a href="#" className="text-primary font-semibold hover:underline">
-                Sign in
-              </a>
-            </p>
           </div>
         </div>
       </div>

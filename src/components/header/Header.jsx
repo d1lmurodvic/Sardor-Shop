@@ -25,7 +25,7 @@ export default function Header() {
               alt="Sardor Shop"
               className="w-10 h-auto"
             />
-            <p>Sardor shop</p>
+            <a href='/' className="text-xl text-info font-bold">SARDOR SHOP</a>
           </div>
 
           <div className="hidden md:flex">

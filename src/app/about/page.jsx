@@ -45,12 +45,12 @@ const iconInfos = [
 
 
   return (
-    <div className="min-h-screen max-w-[84%] mx-auto">
+    <div className="min-h-screen mx-auto">
       <div className="mt-4 flex items-center justify-center">
         <p className="text-3xl font-bold text-info">Biz xaqimidzda</p>
       </div>
 
-      <section className="max-w-6xl mx-auto px-6 my-6">
+      <section className=" mx-auto  my-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ const iconInfos = [
           transition={{ duration: 0.6 }}
           className=" dark:bg-base-200 rounded-2xl shadow-xl p-10"
         >
-          <h2 className="text-3xl font-bold text-info mb-6">Bizning tariximiz</h2>
+          <p className="text-3xl font-bold text-info mb-6">Bizning tariximiz</p>
           <p className="text-lg leading-relaxed text-base-content/80">
             Welcome to <span className="font-bold text-base-content">Sardor Shop</span>!
             Since our founding, we've been passionate about bringing the freshest,
@@ -78,7 +78,7 @@ const iconInfos = [
         <p className="text-3xl font-bold text-center mb-12 text-info">
           Ustunliklarimiz
         </p>
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto rounded-2xl ">
+        <div className="grid md:grid-cols-3 gap-10  mx-auto rounded-2xl ">
           {iconInfos.map((item, i) => (
             <motion.div
               key={i}
@@ -88,9 +88,9 @@ const iconInfos = [
               <div className="text-base-content mb-4 flex justify-center">
                 {item.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-base-content">
+              <p className="text-xl font-semibold mb-2 text-base-content">
                 {item.title}
-              </h3>
+              </p>
               <p className="text-base-content/70">{item.desc}</p>
             </motion.div>
           ))}
@@ -100,12 +100,12 @@ const iconInfos = [
         <p className="text-3xl font-bold text-center mb-12 text-info">
           Meet Our Team
         </p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto ">
           {teamMembers.map((person, i) => (
             <motion.div
               key={i}
               whileHover={{ scale: 1.03 }}
-              className="bg-white dark:bg-base-200 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl border-1 border-info transition-all"
+              className="bg-base-content dark:bg-base-200 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl border-1 border-info transition-all"
             >
               <div className="flex flex-col items-center p-8">
                 <img
