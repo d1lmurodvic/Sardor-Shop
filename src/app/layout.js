@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import ThemeProvider from "@/components/ui/theme/themeProvider/page"; 
+import { CartProvider } from "./context/CartContext"; // <- import CartProvider
 
 export const metadata = {
   title: "Sardor Shop",
@@ -29,11 +30,13 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-base-300 flex flex-col`}
       >
         <ThemeProvider>
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
+          <CartProvider> 
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </CartProvider>
         </ThemeProvider>
       </body>
     </html>
