@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@react-oauth/google": "^0.12.2",
     "@reduxjs/toolkit": "^2.8.2",
     "axios": "^1.13.2",
     "daisyui": "^5.0.50",

@@ -4,6 +4,7 @@ import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import ThemeProvider from "@/components/ui/theme/themeProvider/page"; 
 import { CartProvider } from "./context/CartContext"; // <- import CartProvider
+import { ToastContainer } from "react-toastify";
 
 export const metadata = {
   title: "Sardor Shop",
@@ -36,6 +37,7 @@ export default function RootLayout({ children }) {
               {children}
             </main>
             <Footer />
+          <ToastContainer/>
           </CartProvider>
         </ThemeProvider>
       </body>

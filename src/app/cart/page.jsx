@@ -12,6 +12,9 @@ export default function CartPage() {
   const [promoCode, setPromoCode] = useState("");
   const [loading, setLoading] = useState(false);
 
+  console.log("cards:", cartItems);
+  
+
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const shipping = subtotal > 500 ? 0 : 0;
   const tax = subtotal * 0.08;
@@ -43,7 +46,7 @@ export default function CartPage() {
   };
 
   return (
-    <div className="min-h-screen bg-base-200 p-6">
+    <div className="min-h-screen mt-4 border-2 border-info p-3 rounded-2xl container max-w-[85%] mx-auto">
       <ToastContainer position="top-right" autoClose={3000} />
       <h1 className="text-3xl font-bold mb-6">Shopping Cart</h1>
       <div className="grid lg:grid-cols-3 gap-8">

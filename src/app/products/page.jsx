@@ -30,7 +30,9 @@ export default function Products() {
   }, []);
 
   if (loading) {
-    return <div className="p-6">Loading...</div>;
+    return <div className="p-6 flex items-center justify-center h-screen">
+      <span className="loading loading-bars text-info loading-lg"></span>
+    </div>;
   }
 
   if (error) {
@@ -47,7 +49,7 @@ export default function Products() {
       <h1 className="text-4xl font-bold mb-6">Discover Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {products.map(product => (
-          <div key={product._id} className="card bg-base-100 shadow-xl rounded-2xl hover:shadow-2xl transition-all">
+          <div key={product._id} className="card bg-base-100 shadow-xl rounded-2xl hover:shadow-2xl border-2 border-info transition-all">
             <figure className="overflow-hidden aspect-square">
               <img
                 src={product.image || "https://via.placeholder.com/400"}
@@ -55,7 +57,7 @@ export default function Products() {
                 className="w-full h-full object-cover hover:scale-110 transition-transform"
               />
             </figure>
-            <div className="card-body">
+            <div className="card-body border-t-2 border-info rounded-2xl">
               <h2 className="card-title">{product.title}</h2>
               <p className="text-sm text-base-content/70 line-clamp-2">{product.description}</p>
               <div className="card-actions justify-between items-center mt-4">
