@@ -6,15 +6,17 @@ import ThemeController from "../ui/theme/themeController/page";
 import NavDesktop from "./NavDesktop";
 import NavMobile from "./NavMobile";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 import { useCart } from "../../app/context/CartContext";
+import { FaRegHeart } from "react-icons/fa";
+
 
 export default function Header() {
-  const router = useRouter(); 
-  const { cartItems } = useCart();  
+  const router = useRouter();
+  const { cartItems } = useCart();
 
   const handleLogout = () => {
-    router.push("/register"); 
+    router.push("/register");
   };
 
   return (
@@ -30,7 +32,13 @@ export default function Header() {
             <NavDesktop />
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4 ">
+
+
+            <Link href={"/like"}>
+              <FaRegHeart size={23} className="text-success" />
+            </Link>
+
             <Link href="/cart" className="relative text-warning">
               <ShoppingCart />
               {cartItems.length > 0 && (
@@ -40,28 +48,15 @@ export default function Header() {
               )}
             </Link>
 
+
             <div className="flex items-center p-1 flex-1">
               <ThemeController className="flex" />
             </div>
 
-            <div className="dropdown dropdown-end hidden md:block">
-              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img
-                    alt="User avatar"
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                  />
-                </div>
-              </div>
-
-              <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-content rounded-box mt-3 w-52 p-2 shadow">
-                <li><a className="text-base-300">Settings</a></li>
-                <li>
-                  <a className="text-success font-bold" onClick={handleLogout}>
-                    Register
-                  </a>
-                </li>
-              </ul>
+            <div>
+              <Link href={"/register"} className="btn btn-success rounded-xl text-white font-bold" onClick={handleLogout}>
+                Register
+              </Link>
             </div>
 
             <div className="block md:hidden">

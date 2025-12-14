@@ -1,16 +1,18 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 export default function Register() {
+  const router = useRouter();
+
   const [form, setForm] = useState({
     username: "",
     lastname: "",
     password: "",
     confirmPassword: "",
-
   });
 
   const [agree, setAgree] = useState(false);
@@ -39,14 +41,26 @@ export default function Register() {
     try {
       setLoading(true);
 
-      const res = await axios.post("https://sardor-s-shop-beckent-5.onrender.com/api/auth/register", {
-        username: form.username,
-        lastname: form.lastname,
-        password: form.password,
-      });
+      const res = await axios.post(
+        "https://sardor-s-shop-beckent-5.onrender.com/api/auth/register",
+        {
+          username: form.username,
+          lastname: form.lastname,
+          password: form.password,
+        }
+      );
 
-      console.log(res.data);
-      toast.success("Registered successfully");
+      console.log("response:", res);
+      
+
+      
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+
+      toast.success("Registered & logged in successfully");
+
+      router.push("/products"); 
+
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");
     } finally {

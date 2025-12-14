@@ -57,12 +57,12 @@ export default function CartPage() {
             </div>
           ) : (
             cartItems.map(item => (
-              <div key={item.id} className="flex gap-4 bg-base-100 p-4 rounded-2xl shadow">
-                <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-xl"/>
-                <div className="flex-1">
-                  <div className="flex justify-between">
+              <div key={item.id} className="flex gap-4 bg-base-100 p-4 rounded-2xl shadow items-center">
+                <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-xl "/>
+                <div className="flex-1 items-center">
+                  <div className="flex justify-between  ">
                     <h3>{item.name}</h3>
-                    <button onClick={() => removeFromCart(item.id)}>
+                    <button onClick={() => removeFromCart(item.id)} className='text-error cursor-pointer '>
                       <Trash2 />
                     </button>
                   </div>
@@ -71,7 +71,7 @@ export default function CartPage() {
                     <span>{item.quantity}</span>
                     <button onClick={() => updateQuantity(item.id, 1)} className="btn btn-xs btn-ghost"><Plus /></button>
                   </div>
-                  <p className="mt-2 font-bold">${item.price * item.quantity}</p>
+                  <p className="mt-2 font-bold text-success">${item.price * item.quantity}</p>
                 </div>
               </div>
             ))

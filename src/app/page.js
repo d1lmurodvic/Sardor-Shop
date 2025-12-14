@@ -107,9 +107,9 @@ export default function Home() {
         </Swiper>
 
      
-        <div className="items-start justify-between border-2 rounded-2xl border-info p-4 w-[60%] hidden lg:flex">
+        <div className=" justify-between border-2 rounded-2xl border-info p-4 w-[60%] hidden lg:flex">
           <div>
-            <p className="text-xl flex font-bold ">Товар дня:</p>
+            <p className="text-xs  flex font-bold pt-2 text-warning">Ishlavommizayu:</p>
           </div>
 
           <div className="mt-1">
