@@ -11,6 +11,7 @@ export default function ContactPage() {
   });
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
     console.log('Form submitted:', formData);
   };
@@ -25,7 +26,6 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-info/5 via-base-100 to-info/10">
       <div className="container mx-auto px-4 py-16">
-        {/* Header Section */}
         <div className="text-center mb-16 animate-fade-in">
           <div className="inline-block">
             <h1 className="text-5xl md:text-6xl font-black text-info mb-4 tracking-tight">
@@ -48,7 +48,6 @@ export default function ContactPage() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-          
           <div className="space-y-6">
             <div className="card bg-info text-info-content shadow-2xl hover:scale-105 transition-transform duration-300">
               <div className="card-body">

@@ -15,6 +15,11 @@ export default function Home() {
   const [isClient, setIsClient] = useState(false);
   const [time, setTime] = useState({ h: 0, m: 0, s: 0 });
   const [isWorkingHours, setIsWorkingHours] = useState(true);
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [messages, setMessages] = useState([
+    { text: "Salom! Sizga qanday yordam bera olaman?", sender: "bot" }
+  ]);
+  const [inputValue, setInputValue] = useState("");
 
   const images = [
     {
@@ -34,11 +39,9 @@ export default function Home() {
     },
   ];
 
-
   useEffect(() => {
     setIsClient(true);
   }, []);
-
 
   useEffect(() => {
     if (!isClient) return;
@@ -62,8 +65,17 @@ export default function Home() {
 
   if (!isClient) return null;
 
-
   const format = (n) => (n < 10 ? `0${n}` : n);
+
+  const handleSendMessage = () => {
+    if (inputValue.trim()) {
+      setMessages([...messages, { text: inputValue, sender: "user" }]);
+      setInputValue("");
+      setTimeout(() => {
+        setMessages(prev => [...prev, { text: "Rahmat! Tez orada javob beramiz.", sender: "bot" }]);
+      }, 1000);
+    }
+  };
 
   return (
     <Container>
@@ -106,7 +118,6 @@ export default function Home() {
           ))}
         </Swiper>
 
-     
         <div className=" justify-between border-2 rounded-2xl border-info p-4 w-[60%] hidden lg:flex">
           <div>
             <p className="text-xs  flex font-bold pt-2 text-warning">Ishlavommizayu:</p>
@@ -134,6 +145,62 @@ export default function Home() {
       <div>
         <Products/>
       </div>
+
+      {/* Chat Button */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <button
+          onClick={() => setIsChatOpen(!isChatOpen)}
+          className="btn btn-circle btn-info btn-lg shadow-lg hover:scale-110 transition-transform"
+        >
+          {isChatOpen ? (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+            </svg>
+          )}
+        </button>
+      </div>
+
+      {/* Chat Dropdown */}
+      {isChatOpen && (
+        <div className="fixed bottom-24 right-6 w-80 bg-base-200 rounded-3xl shadow-2xl z-50 border-2 border-info overflow-hidden">
+          <div className="bg-info text-info-content p-4 flex items-center justify-between">
+            <h3 className="font-bold text-lg">Yordam markazi</h3>
+            <div className="badge badge-success badge-sm">Online</div>
+          </div>
+
+          <div className="h-96 overflow-y-auto p-4 space-y-3 bg-base-100">
+            {messages.map((msg, idx) => (
+              <div key={idx} className={`chat ${msg.sender === "user" ? "chat-end" : "chat-start"}`}>
+                <div className={`chat-bubble ${msg.sender === "user" ? "chat-bubble-info" : "chat-bubble-accent"}`}>
+                  {msg.text}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="p-4 bg-base-200 border-t border-info/30">
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
+                placeholder="Xabar yozing..."
+                className="input input-bordered input-info w-full"
+              />
+              <button onClick={handleSendMessage} className="btn btn-info btn-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </Container>
   );
 }

@@ -13,12 +13,10 @@ export default function Products() {
 
   const { addToCart } = useCart();
 
-  // 🔐 TOKEN CHECK
   const getToken = () => {
     return localStorage.getItem("token");
   };
 
-  // 🛒 ADD TO CART (TOKEN REQUIRED)
   const handleBuy = (product) => {
     const token = getToken();
 
@@ -31,7 +29,6 @@ export default function Products() {
     toast.success("Product added to cart");
   };
 
-  // ❤️ LIKE / UNLIKE
   const handleLike = async (productId) => {
     const token = getToken();
 
